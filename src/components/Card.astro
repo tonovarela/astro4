@@ -1,0 +1,55 @@
+---
+import type { Usuario } from '../interface/usuario.interface';
+
+const CardTemplate= 'div';
+const Container ='div';
+
+ interface Props extends Usuario{}
+
+const  {nombre,ocupacion='Sin ocupacion',urlImage="assets/img/no-profile.jpg"} = Astro.props;
+
+
+---
+<script>
+	function hola(){
+		alert("hola---");
+	}
+	
+	const button = document.getElementById("btn");
+	button?.addEventListener("click",hola);
+</script>
+
+
+<CardTemplate class="card">
+	<img src={urlImage} alt="" style="width: 100%;">
+	<Container class="container">
+     <h4>
+		{nombre},  {ocupacion}
+	 </h4>
+	 <div>
+		<button id="btn" onclick="hola()">Test</button>
+	 </div>	 
+	 <slot name="descripcion"></slot>	 
+	</Container>
+
+</CardTemplate>
+
+
+<style>
+	.card {
+		padding: 20px;		
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		transition: 0.3s;
+		margin-left: 50px;		
+		width: 15%;
+		margin-bottom: 15px;		
+
+	}
+	.card:hover {
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+	}
+	.container {
+		padding: 2px, 16px;
+
+	}
+</style>

@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Titulo from "../components/Titulo.astro";
+import Card from "../components/Card.astro";
+import { usuarios } from "../data/usuarios";
+import Json from "../components/Json.astro";
+---
+
+<Layout title="Bienvenido a Astro">
+	<Titulo />
+	<div style="display:flex">
+		{
+			usuarios.map((usuario) => (<Card {...usuario} >
+				<span slot="descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, fugit illum? Quisquam, fuga delectus quidem dolores incidunt aliquid debitis voluptatum, porro odit, sunt omnis consectetur adipisci eligendi placeat similique a!</span>
+			</Card>))
+		}
+	</div>
+	<Json/>
+</Layout>
+
+<style>
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+</style>
