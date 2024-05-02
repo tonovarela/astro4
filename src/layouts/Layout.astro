@@ -1,5 +1,6 @@
 ---
-import Footer from '../components/Footer.astro';
+import Menu from '@components/Menu.astro';
+import Footer from '@components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -20,7 +21,7 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		
-		<h1 class="white"> Menu</h1>
+		<Menu/>
 		<slot/>
 		<Footer/>
 	</body>
